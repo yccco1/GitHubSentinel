@@ -25,7 +25,8 @@ class LLM:
             response = self.client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                    {"role": "user", "content": prompt}
+                    {"role": "system", "content": "你是一个计算机行业的专业助手，善于用中文解答问题。"},
+                    {"role": "user", "content": prompt},
                 ]
             )
             LOG.debug("GPT response: {}", response)
